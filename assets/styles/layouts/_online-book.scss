@@ -88,6 +88,7 @@
                 }
             }
             
+            // *******************2ND PART*********************
             
         }
         
@@ -116,7 +117,6 @@
             }
 
             form {
-                min-width: 300px;
                 margin: 50px auto 0;
                 padding: 0 20px;
                 display: grid;
@@ -176,10 +176,10 @@
                 }
 
                 input[type="submit"] {
-                    min-width: 180px;
                     max-width: 500px;
                     height: 50px;
                     margin: 0 0 60px;
+                    padding: 0 20px;
                     background: $black1;
                     border: none;
                     border-radius: 150px;
@@ -196,8 +196,7 @@
 
                     @media screen and (max-width:900px){
                         margin: 25px auto;
-                        height: 70px;
-                        
+                        height: 70px;                        
                     }
 
                     &:hover {

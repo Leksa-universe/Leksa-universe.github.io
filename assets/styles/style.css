@@ -430,9 +430,9 @@ header .header-container p {
   position: relative;
   min-height: 750px;
   margin-top: 120px;
+  padding: 0 10px;
 }
 .section2 .bottom-part .card {
-  min-width: 600px;
   width: 100%;
   max-width: 900px;
   padding: 20px 0;
@@ -444,15 +444,8 @@ header .header-container p {
   transform: translateY(-100px);
   box-shadow: inset 0px 5px 0 rgb(184, 124, 75);
 }
-@media screen and (max-width: 980px) {
-  .section2 .bottom-part .card {
-    width: 90%;
-  }
-}
 @media screen and (max-width: 630px) {
   .section2 .bottom-part .card {
-    min-width: 300px;
-    max-width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -469,12 +462,24 @@ header .header-container p {
   align-items: center;
   border-bottom: 1px dashed rgb(26, 26, 26);
 }
+@media screen and (max-width: 310px) {
+  .section2 .bottom-part .card .left-part li,
+  .section2 .bottom-part .card .right-part li {
+    padding: 10px 5px;
+  }
+}
 .section2 .bottom-part .card .left-part li img,
 .section2 .bottom-part .card .right-part li img {
   border-radius: 150px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+@media screen and (max-width: 350px) {
+  .section2 .bottom-part .card .left-part li img,
+  .section2 .bottom-part .card .right-part li img {
+    width: 35%;
+  }
 }
 .section2 .bottom-part .card .left-part li .li-container,
 .section2 .bottom-part .card .right-part li .li-container {
@@ -656,7 +661,6 @@ header .header-container p {
   height: 30px;
 }
 .online-book .online-book-container .reservation form {
-  min-width: 300px;
   margin: 50px auto 0;
   padding: 0 20px;
   display: grid;
@@ -724,10 +728,10 @@ header .header-container p {
   color: rgb(169, 114, 69);
 }
 .online-book .online-book-container .reservation form input[type=submit] {
-  min-width: 180px;
   max-width: 500px;
   height: 50px;
   margin: 0 0 60px;
+  padding: 0 20px;
   background: rgb(26, 26, 26);
   border: none;
   border-radius: 150px;
@@ -1104,7 +1108,7 @@ header .header-container p {
   width: 90%;
   max-width: 1150px;
   min-height: 350px;
-  max-height: 500px;
+  max-height: 440px;
   padding: 20px;
   position: absolute;
   bottom: 240px;
@@ -1257,7 +1261,7 @@ footer .about .newsletter input {
   background: transparent;
   border: 1px solid rgb(53, 41, 41);
   padding: 10px;
-  width: 250px;
+  max-width: 250px;
   margin: 10px 0;
   color: rgb(169, 114, 69);
   font-family: "Roboto";
