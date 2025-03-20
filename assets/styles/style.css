@@ -30,6 +30,7 @@ body {
   font-family: "Roboto";
   background: rgb(26, 26, 26);
   outline: none;
+  overflow:hidden;
 }
 body span img {
   -webkit-user-select: none;
