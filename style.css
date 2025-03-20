@@ -1,7 +1,8 @@
 body {
     background: rgb(31, 31, 31);
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden;
-    min-height: 100vh;
     cursor: crosshair;
 }
 
