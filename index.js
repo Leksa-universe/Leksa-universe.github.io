@@ -10,7 +10,7 @@ const bubbleGame = () => {
   document.body.appendChild(bubble);
 
   // Injection de tailles random
-  const size = Math.random() * 150 + 50 + "px";
+  const size = Math.random() * 100 + 25 + "px";
   bubble.style.height = size;
   bubble.style.width = size;
 
