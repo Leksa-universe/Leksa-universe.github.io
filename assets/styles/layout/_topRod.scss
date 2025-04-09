@@ -1,0 +1,38 @@
+.top-rod {
+  height: 60px;
+  z-index: 2000;
+
+  h2 {
+    font-family: $font1;
+    font-size: 2.8rem;
+    color: $color1;
+    font-weight: 800;
+    line-height: 42px;
+    transform: rotate(-8deg);
+    position: absolute;
+    bottom: 45px;
+    left: 10px;
+  }
+
+  #kamasScore {
+    padding: 2px 30px;
+    border: 3px inset rgb(66, 116, 26);
+    border-radius: 30px;
+    font-size: 1.4rem;
+    color: white;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    #kamasImg {
+      background: url(../img/Kamas.png) center/cover;
+      width: 31px;
+      height: 31px;
+      border-radius: 300px;
+      display: inline-block;
+      position: absolute;
+      right: 55px;
+      top: -1px;
+    }
+  }
+}

@@ -1,37 +1,35 @@
-// Injection variable (compteur)
-const counterDisplay = document.querySelector("h3");
-let counter = 0;
+const cunterDisplay = document.getElementById("kamasScore");
+let cunter = 0;
 
-// Création de la function
-const bubbleGame = () => {
-  // Injection du span et de la classe
+const KamasGame = () => {
+  // BUBBLE CREATE
   const bubble = document.createElement("span");
   bubble.classList.add("bubble");
   document.body.appendChild(bubble);
 
-  // Injection de tailles random
-  const size = Math.random() * 100 + 25 + "px";
-  bubble.style.height = size;
+  // BUBBLE SIZE
+  const size = Math.random() * 25 + 125 + "px";
   bubble.style.width = size;
+  bubble.style.height = size;
 
-  //  Injection de placement random
+  // BUBBLE SPAWN
   bubble.style.top = Math.random() * 100 + 50 + "%";
   bubble.style.left = Math.random() * 100 + "%";
 
-  // Injection de déplacement random
+  // BUBBLE MOOVE
   const plusMinus = Math.random() > 0.5 ? 1 : -1;
-  bubble.style.setProperty("--left", Math.random() * 100 * plusMinus + "%");
+  bubble.style.setProperty("--left", Math.random() * 100 + plusMinus + "%");
 
-  // Explosion de bulle + injection compteurs de kills
+  // BUBBLE SHOOT
   bubble.addEventListener("click", () => {
-    counter++;
-    counterDisplay.textContent = counter;
+    cunter++;
     bubble.remove();
+    cunterDisplay.textContent = cunter;
   });
 
+  // BUBBLE TIME
   setTimeout(() => {
     bubble.remove();
   }, 8000);
 };
-
-setInterval(bubbleGame, 800);
+setInterval(KamasGame, 1500);

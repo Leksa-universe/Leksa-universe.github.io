@@ -1,0 +1,30 @@
+.bubble {
+    position: absolute;
+    background: url(../img/Kamas.png) center/cover;
+    opacity: 0;
+    border-radius: 300px;
+    // filter: hue-rotate(-10deg);
+    animation: goToUp 8s infinite;
+}
+
+@keyframes goToUp {
+    to {
+        top: -300px;
+        left: var(--left);
+        opacity: 1;
+      
+    }
+    
+}
+
+// VERSION 
+#version {
+    color: #3f3f3f;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 900000;
+}
+
+
+

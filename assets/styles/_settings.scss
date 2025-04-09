@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Stick";
+    src: url(../fonts/Stick-Regular.ttf);
+}
+
+$font1: Stick;
+$black: #152B15;
+$color1: #FEF59B;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../img/bg.jpg) center/cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: crosshair;
+    user-select: none;
+}
