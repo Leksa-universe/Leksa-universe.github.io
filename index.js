@@ -1,35 +1,49 @@
-const cunterDisplay = document.getElementById("kamasScore");
-let cunter = 0;
+const form = document.querySelector("form");
+const input = document.querySelector('input[type = "text"]');
+const todoList = document.getElementById("todo-list");
 
-const KamasGame = () => {
-  // BUBBLE CREATE
-  const bubble = document.createElement("span");
-  bubble.classList.add("bubble");
-  document.body.appendChild(bubble);
+let tasks = [];
 
-  // BUBBLE SIZE
-  const size = Math.random() * 25 + 125 + "px";
-  bubble.style.width = size;
-  bubble.style.height = size;
+// Véréficitation de l'existence d'une tâche
+if (localStorage.getItem("todos")) {
+  // récupération des données et convertion en tableau
+  tasks = JSON.parse(localStorage.getItem("todos"));
 
-  // BUBBLE SPAWN
-  bubble.style.top = Math.random() * 100 + 50 + "%";
-  bubble.style.left = Math.random() * 100 + "%";
+  tasks.forEach((task) => {
+    const li = document.createElement("li");
+    li.textContent = task;
 
-  // BUBBLE MOOVE
-  const plusMinus = Math.random() > 0.5 ? 1 : -1;
-  bubble.style.setProperty("--left", Math.random() * 100 + plusMinus + "%");
+    li.addEventListener("click", () => {
+      todoList.removeChild(li);
 
-  // BUBBLE SHOOT
-  bubble.addEventListener("click", () => {
-    cunter++;
-    bubble.remove();
-    cunterDisplay.textContent = cunter;
+      tasks = tasks.filter((t) => t !== task);
+      localStorage.setItem("todos", JSON.stringify(tasks));
+    });
+
+    todoList.appendChild(li);
   });
+}
 
-  // BUBBLE TIME
-  setTimeout(() => {
-    bubble.remove();
-  }, 8000);
-};
-setInterval(KamasGame, 1500);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const task = input.value.trim();
+
+  if (task !== "") {
+    const li = document.createElement("li");
+    li.textContent = task;
+
+    li.addEventListener("click", () => {
+      todoList.removeChild(li);
+      tasks = tasks.filter((t) => t !== task);
+      localStorage.setItem("todos", JSON.stringify(tasks));
+    });
+
+    todoList.appendChild(li);
+    tasks.push(task), localStorage.setItem("todos", JSON.stringify(tasks));
+  }
+
+  input.value = "";
+});
+
+// TOTAL 147 LIGNES - 3h

@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+body {
+  overflow: hidden;
+  max-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to right, #434343 0%, black 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  border: solid 2px whitesmoke;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 22px 0 10px 0;
+}
+
+.todo-container > h1 {
+  color: rgb(200, 200, 200);
+  font-size: 4rem;
+  font-style: italic;
+  text-align: center;
+  padding: 0 52px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+input[type="text"] {
+  outline: none;
+  width: 60%;
+  max-width: 400px;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  border: 1px solid whitesmoke;
+  background: transparent;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 1.3rem;
+  margin: 8px 0 8px 8px;
+  transition: 0.2s ease;
+  transform-origin: left center;
+}
+
+li:hover {
+  transform: scale(1.1) translateX(10px);
+}
+
+li::before {
+  content: "\261E"; /* Unicode pour ☞ */
+  margin-right: 10px;
+  color: whitesmoke;
+  font-size: 2rem;
+  position: relative;
+  top: 5px;
+}
