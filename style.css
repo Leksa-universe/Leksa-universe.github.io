@@ -86,8 +86,8 @@ ul {
 li {
   cursor: pointer;
   color: whitesmoke;
-  font-size: 1.4rem;
-  margin: 8px 0 8px 35px;
+  font-size: 1.2rem;
+  margin: 15px 0 8px 40px;
   transition: 0.3s ease;
   transform-origin: left center;
   position: relative;
@@ -102,7 +102,7 @@ li::before {
   color: whitesmoke;
   font-size: 2rem;
   position: absolute;
-  transform: translate(-34px, -10px);
+  transform: translate(-37px, -12px);
 }
 
 .valid {
