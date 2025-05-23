@@ -11,9 +11,17 @@
     <div class="todo-container">
       <h1>Your Todo List !</h1>
       <form action="">
-        <input type="text" placeholder="Your task here.." />
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="todo"
+            placeholder="Your task here.."
+            autocomplete="off"
+          />
+          <button type="submit" class="arrow-btn">➤</button>
+        </div>
       </form>
-      <ul id="todo-list"></ul>
+      <ul id="list"></ul>
     </div>
   </body>
 </html>

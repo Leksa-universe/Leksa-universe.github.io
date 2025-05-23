@@ -1,49 +1,36 @@
 const form = document.querySelector("form");
-const input = document.querySelector('input[type = "text"]');
-const todoList = document.getElementById("todo-list");
+const todo = document.getElementById("todo");
+const list = document.getElementById("list");
 
-let tasks = [];
+const saveTodos = () => {
+  window.localStorage.todoList = list.innerHTML;
+};
 
-// Véréficitation de l'existence d'une tâche
-if (localStorage.getItem("todos")) {
-  // récupération des données et convertion en tableau
-  tasks = JSON.parse(localStorage.getItem("todos"));
+const loadTodos = () => {
+  if (window.localStorage.todoList) {
+    list.innerHTML = window.localStorage.todoList;
+  } else {
+    list.innerHTML = `<li>Vos tâches ! Vos objectifs ! Just do it !</li>`;
+  }
+};
 
-  tasks.forEach((task) => {
-    const li = document.createElement("li");
-    li.textContent = task;
-
-    li.addEventListener("click", () => {
-      todoList.removeChild(li);
-
-      tasks = tasks.filter((t) => t !== task);
-      localStorage.setItem("todos", JSON.stringify(tasks));
-    });
-
-    todoList.appendChild(li);
-  });
-}
+window.addEventListener("load", loadTodos);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const task = input.value.trim();
+  list.innerHTML += `<li>${todo.value}</li>`;
 
-  if (task !== "") {
-    const li = document.createElement("li");
-    li.textContent = task;
+  todo.value = "";
 
-    li.addEventListener("click", () => {
-      todoList.removeChild(li);
-      tasks = tasks.filter((t) => t !== task);
-      localStorage.setItem("todos", JSON.stringify(tasks));
-    });
-
-    todoList.appendChild(li);
-    tasks.push(task), localStorage.setItem("todos", JSON.stringify(tasks));
-  }
-
-  input.value = "";
+  saveTodos();
 });
 
-// TOTAL 147 LIGNES - 3h
+list.addEventListener("click", (e) => {
+  if (e.target.classList.contains("valid")) {
+    e.target.remove();
+  } else {
+    e.target.classList.add("valid");
+  }
+  saveTodos();
+});
