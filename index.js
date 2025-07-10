@@ -57,7 +57,7 @@ class Exercice {
     return (main.innerHTML = `
     <div class="exercice-container">
     <p>${this.minutes}:${this.seconds}</p>
-    <img src="./img/${exerciceArray[this.index].pic}.png"/>
+    <img src="./${exerciceArray[this.index].pic}.png"/>
     <div>${this.index + 1}/${exerciceArray.length}</div>
     </div>`);
   }
@@ -142,7 +142,7 @@ const page = {
         <input type="number" id="${exo.pic}" min="1" max="10" value="${exo.min}">
         <span>min</span>
         </div>
-        <img src="./img/${exo.pic}.png"/>
+        <img src="./${exo.pic}.png"/>
         <i class="fas fa-arrow-alt-circle-left arrow" data-pic="${exo.pic}"></i>
         <i class="fas fa-times-circle deleteBtn" data-pic="${exo.pic}"></i>
       </li>
