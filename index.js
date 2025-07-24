@@ -1,182 +1,108 @@
-const main = document.querySelector("main");
-const basicArray = [
-  { pic: 0, min: 1 },
-  { pic: 1, min: 1 },
-  { pic: 2, min: 1 },
-  { pic: 3, min: 1 },
-  { pic: 4, min: 1 },
-  { pic: 5, min: 1 },
-  { pic: 6, min: 1 },
-  { pic: 7, min: 1 },
-  { pic: 8, min: 1 },
-  { pic: 9, min: 1 },
-];
-
-let exerciceArray = [];
-
-// Get stored exercices array
-(() => {
-  if (localStorage.exercices) {
-    exerciceArray = JSON.parse(localStorage.exercices);
-  } else {
-    exerciceArray = basicArray;
+class Question {
+  constructor(text, choices, answer) {
+    this.text = text;
+    this.choices = choices;
+    this.answer = answer;
   }
-})();
-
-class Exercice {
-  constructor() {
-    this.index = 0;
-    this.minutes = exerciceArray[this.index].min;
-    this.seconds = 0;
-  }
-
-  updateCountdown() {
-    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
-
-    setTimeout(() => {
-      if (this.minutes === 0 && this.seconds === "00") {
-        this.index++;
-        this.ring();
-        if (this.index < exerciceArray.length) {
-          this.minutes = exerciceArray[this.index].min;
-          this.seconds = 0;
-          this.updateCountdown();
-        } else {
-          return page.finish();
-        }
-      } else if (this.seconds === "00") {
-        this.minutes--;
-        this.seconds = 59;
-        this.updateCountdown();
-      } else {
-        this.seconds--;
-        this.updateCountdown();
-      }
-    }, 1000);
-
-    return (main.innerHTML = `
-    <div class="exercice-container">
-    <p>${this.minutes}:${this.seconds}</p>
-    <img src="./${exerciceArray[this.index].pic}.png"/>
-    <div>${this.index + 1}/${exerciceArray.length}</div>
-    </div>`);
-  }
-
-  ring() {
-    const audio = new Audio();
-    audio.src = "ring.mp3";
-    audio.play();
+  isGoodAnswer(choice) {
+    return choice === this.answer;
   }
 }
 
-const utils = {
-  pageContent: function (title, content, btn) {
-    document.querySelector("h1").innerHTML = title;
-    main.innerHTML = content;
-    document.querySelector(".btn-container").innerHTML = btn;
+const questions = [
+  new Question(
+    "Quelle méthode Javascript permet de filtrer les éléments d'un tableau",
+    ["indexOf()", "map()", "filter()", "reduce()"],
+    "filter()"
+  ),
+  new Question(
+    "Quelle méthode Javascript permet de vérifier si un élément figure dans un tableau",
+    ["isNaN()", "includes()", "findIndex()", "isOdd()"],
+    "includes()"
+  ),
+  new Question(
+    "Quelle méthode transforme du JSON en un objet Javascript ?",
+    ["JSON.parse()", "JSON.stringify()", "JSON.object()", "JSON.toJS"],
+    "JSON.parse()"
+  ),
+  new Question(
+    "Quel objet Javascript permet d'arrondir à l'entier le plus proche",
+    ["Math.ceil()", "Math.floor()", "Math.round()", "Math.random()"],
+    "Math.round()"
+  ),
+];
+
+class Quiz {
+  constructor(questions) {
+    this.score = 0;
+    this.questions = questions;
+    this.currentQuestionIndex = 0;
+  }
+
+  getCurrentQuestion() {
+    return this.questions[this.currentQuestionIndex];
+  }
+  guess(choice) {
+    if (this.getCurrentQuestion().isGoodAnswer(choice)) {
+      this.score++;
+    }
+    this.currentQuestionIndex++;
+  }
+  hasEnded() {
+    return this.currentQuestionIndex >= this.questions.length;
+  }
+}
+
+// DISPLAY
+
+const display = {
+  elementShown: function (id, text) {
+    let element = document.getElementById(id);
+    element.innerHTML = text;
   },
 
-  handleEventMinutes: function () {
-    document.querySelectorAll('input[type="number"]').forEach((input) => {
-      input.addEventListener("input", (e) => {
-        exerciceArray.map((exo) => {
-          if (exo.pic == e.target.id) {
-            exo.min = parseInt(e.target.value);
-            this.store();
-          }
-        });
-      });
-    });
+  question: function () {
+    this.elementShown("question", quiz.getCurrentQuestion().text);
   },
 
-  handleEventArrow: function () {
-    document.querySelectorAll(".arrow").forEach((arrow) => {
-      arrow.addEventListener("click", (e) => {
-        let position = 0;
+  choices: function () {
+    let currentChoices = quiz.getCurrentQuestion().choices;
 
-        exerciceArray.map((exo) => {
-          if (exo.pic == e.target.dataset.pic && position !== 0) {
-            [exerciceArray[position], exerciceArray[position - 1]] = [
-              exerciceArray[position - 1],
-              exerciceArray[position],
-            ];
-            page.lobby();
-            this.store();
-          } else {
-            position++;
-          }
-        });
-      });
-    });
-  },
-  deleteItem: function () {
-    document.querySelectorAll(".deleteBtn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const newArr = exerciceArray.filter(
-          (exo) => exo.pic != e.target.dataset.pic
-        );
-        exerciceArray = newArr;
-        page.lobby();
-        this.store();
-      });
-    });
-  },
-  reboot: function () {
-    exerciceArray = basicArray;
-    page.lobby();
-    this.store();
+    for (let i = 0; i < currentChoices.length; i++) {
+      this.elementShown("choice" + i, quiz.getCurrentQuestion().choices[i]);
+
+      document.getElementById("guess" + i).onclick = () => {
+        quiz.guess(currentChoices[i]);
+        quizApp();
+      };
+    }
   },
 
-  store: function () {
-    localStorage.exercices = JSON.stringify(exerciceArray);
-  },
-};
-
-const page = {
-  lobby: function () {
-    let mapArray = exerciceArray
-      .map((exo) => {
-        return `
-      <li> 
-        <div class="card-header">
-        <input type="number" id="${exo.pic}" min="1" max="10" value="${exo.min}">
-        <span>min</span>
-        </div>
-        <img src="./${exo.pic}.png"/>
-        <i class="fas fa-arrow-alt-circle-left arrow" data-pic="${exo.pic}"></i>
-        <i class="fas fa-times-circle deleteBtn" data-pic="${exo.pic}"></i>
-      </li>
-      `;
-      })
-      .join("");
-
-    utils.pageContent(
-      `Paramétrage<i id="reboot" class="fas fa-undo"></i>`,
-      `<ul>${mapArray}</ul>`,
-      `<button id="start">Commencer<i class="far fa-play-circle"></i></button>`
-    );
-    utils.handleEventMinutes();
-    utils.handleEventArrow();
-    utils.deleteItem();
-    reboot.addEventListener("click", () => utils.reboot());
-    start.addEventListener("click", () => this.routine());
+  progress: function () {
+    document.getElementById("progress").textContent = `
+    Question ${quiz.currentQuestionIndex + 1} / ${quiz.questions.length}
+    `;
   },
 
-  routine: function () {
-    const exercice = new Exercice();
-
-    utils.pageContent("Routine", exercice.updateCountdown(), null);
-  },
-
-  finish: function () {
-    utils.pageContent(
-      "C'est terminé !",
-      `<button id="start">Recommencer<button>`,
-      `<button id="reboot" class="btn-reboot">Réinitialiser<i class="fas fa-times-circle"></i></button>`
-    );
-    start.addEventListener("click", () => this.routine());
-    reboot.addEventListener("click", () => utils.reboot());
+  end: function () {
+    document.getElementById("quiz").innerHTML = `
+    <h1>Quiz Terminé !</h1>
+    <h3>Votre score: ${quiz.score}/${quiz.questions.length}</h3>
+    `;
   },
 };
 
-page.lobby();
+// GAME LOGIC
+const quizApp = () => {
+  if (quiz.hasEnded()) {
+    display.end();
+  } else {
+    display.question();
+    display.choices();
+    display.progress();
+  }
+};
+
+let quiz = new Quiz(questions);
+
+quizApp();
