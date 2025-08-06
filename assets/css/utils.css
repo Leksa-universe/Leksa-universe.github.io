@@ -1,0 +1,309 @@
+/* ========================
+   RESET / STYLES GLOBAUX
+======================== */
+a {
+  text-decoration: none;
+  color: inherit;
+  color: var(--color-grey-dark);
+}
+
+/* ========================
+   CLASSES UTILITAIRES
+======================== */
+hr {
+  width: 80%;
+  margin: 60px auto 80px;
+
+  filter: opacity(0.5);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* === BACKGROUND COLORS === */
+.bg-white {
+  background-color: var(--color-white);
+}
+.bg-dark {
+  background-color: var(--color-black);
+}
+.bg-grey-dark {
+  background-color: var(--color-grey-dark);
+}
+.bg-black-transparent {
+  background: var(--color-black-shadow);
+}
+.bg-transparent {
+  background-color: transparent;
+}
+
+/* === FONT SIZE === */
+.text-sm {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.8;
+}
+.text-md {
+  font-size: 1rem; /* 16px */
+}
+.text-lg {
+  font-size: 1.375rem; /* 22px */
+  line-height: 1.4;
+}
+.text-xl {
+  font-size: 3rem; /* 48px */
+  line-height: 1.2;
+}
+
+.text-xxl {
+  font-size: 4rem; /* 64px */
+  line-height: 1.2;
+}
+
+/* === FONT WEIGHTS === */
+.fw-bold {
+  font-weight: 700;
+}
+.fw-normal {
+  font-weight: 400;
+}
+.fw-light {
+  font-weight: 300;
+}
+
+/* === COLORS === */
+.text-black {
+  color: var(--color-black);
+}
+.text-grey-dark {
+  color: var(--color-grey-dark);
+}
+.text-grey-light {
+  color: var(--color-grey-light);
+}
+.text-white {
+  color: var(--color-white);
+}
+.text-blue {
+  color: var(--color-blue);
+}
+
+/* === TEXT === */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.no-underline {
+  text-decoration: none;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.list-style-none {
+  list-style: none;
+}
+
+/* === MARGIN === */
+.m-auto {
+  margin: 0 auto;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+/* === PADDING === */
+.p-2 {
+  padding: 2rem;
+}
+.pt-1 {
+  padding-top: 1rem;
+}
+.pb-1 {
+  padding-bottom: 1rem; /* 16px */
+}
+.pt-2 {
+  padding-top: 2rem; /* 32px */
+}
+.padding-block-sm {
+  padding-block: 1.5rem; /* 24px */
+}
+.padding-block-lg {
+  padding-block: 3rem; /* 48px */
+}
+
+/* === WIDTH === */
+.w-auto {
+  width: auto;
+}
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-30 {
+  width: 30%;
+}
+.max-w-150 {
+  max-width: 150px;
+}
+.max-w-600 {
+  max-width: 600px;
+}
+.max-w-800 {
+  max-width: 800px;
+}
+.max-w-1200 {
+  max-width: 1200px;
+}
+
+/* === HEIGHT === */
+.h-50 {
+  height: 50%;
+}
+.h-100 {
+  height: 100%;
+}
+.h-150 {
+  height: 150px;
+}
+.max-h-150 {
+  max-height: 150px;
+}
+.max-h-600 {
+  max-height: 600px;
+}
+.max-h-800 {
+  max-height: 800px;
+}
+.h-auto {
+  height: auto;
+}
+
+/* === FLEX === */
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* == JUSTIFY == */
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* === CENTRAGE === */
+.centrage {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* == DISPLAY == */
+.d-block {
+  display: block;
+}
+.d-none {
+  display: none;
+}
+
+/* === OBJECT FIT === */
+.object-contain {
+  object-fit: contain;
+}
+
+/* === POSITIONS === */
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.tl-0 {
+  top: 0;
+  left: 0;
+}
+
+/* === TRANSITIONS === */
+.transition-fast {
+  transition: all 0.3s ease;
+}
+
+.transition-medium {
+  transition: all 0.5s ease;
+}
+
+.transition-slow {
+  transition: all 0.7s ease;
+}
+
+/* === CURSOR  & USER-SELECT === */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.select-none {
+  user-select: none;
+}
+
+/* === Z INDEX === */
+.z-2 {
+  z-index: 2;
+}
+.z-10 {
+  z-index: 10;
+}
+
+/* === BRIGHTNESS === */
+.brightness-150 {
+  filter: brightness(1.5);
+}

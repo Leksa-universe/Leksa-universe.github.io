@@ -1,53 +1,1159 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      Couvreur zingueur à Le Muy (83) & 40 km autour - Compagnons du Castellas
+    </title>
 
-  <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <link href="./style.css" rel="stylesheet">
-</head>
+    <meta
+      name="description"
+      content="Garantie décennale, devis gratuit, intervention dans tout le Var (83) jusqu'à 40 km autour de Le Muy. Spécialiste couverture, zinguerie, charpente, étanchéité."
+    />
 
-<body>
+    <!-- Balises géographiques SEO local -->
+    <meta name="geo.region" content="FR-83" />
+    <meta name="geo.placename" content="Le Muy" />
 
-  <div class="container">
-    <div id="quiz">
-      <h1><span>Q</span>uiz <i class="far fa-question-circle"></i></h1>
+    <!-- SEO Réseaux sociaux -->
+    <meta
+      property="og:title"
+      content="Couvreur zingueur à Le Muy et dans le Var – Compagnons du Castellas"
+    />
+    <meta
+      property="og:description"
+      content="Couvreur zingueur à Le Muy : couverture, charpente, nettoyage de toiture. Intervention rapide dans le Var 83. Devis gratuit."
+    />
+    <meta
+      property="og:image"
+      content="https://www.compagnonsducastellas.fr/assets/favicon/og-img-512x512.webp"
+    />
+    <meta property="og:url" content="https://www.compagnonsducastellas.fr/" />
+    <meta property="og:type" content="website" />
 
-      <h2 id="question"></h2>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://www.compagnonsducastellas.fr/assets/favicon/og-img-512x512.webp"
+    />
+    <meta
+      name="twitter:title"
+      content="Couvreur zingueur à Le Muy – Travaux garantis 10 ans"
+    />
+    <meta
+      name="twitter:description"
+      content="Travaux de couverture à Le Muy et dans le Var : pose de tuiles, rénovation de toiture, recherche de fuites. Devis gratuit rapide."
+    />
 
-      <h3 id="score"></h3>
+    <link rel="canonical" href="https://www.compagnonsducastellas.fr/" />
 
-      <div class="choices">
-        <button id="guess0" class="btn">
-          <p id="choice0"></p>
-        </button>
+    <!-- Police Jost -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <button id="guess1" class="btn">
-          <p id="choice1"></p>
-        </button>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-        <button id="guess2" class="btn">
-          <p id="choice2"></p>
-        </button>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/utils.css" />
+    <!-- Favicon pour navigateur classique -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
 
-        <button id="guess3" class="btn">
-          <p id="choice3"></p>
-        </button>
+    <!-- Apple touch icon (iOS) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../assets/favicon/android-chrome-512x512.png"
+    />
+
+    <!-- Balisage JSON-LD pour le SEO local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Compagnons du Castellas",
+        "image": "https://www.compagnonsducastellas.fr/assets/favicon/og-img-512x512.webp",
+        "url": "http://www.compagnonsducastellas.fr",
+        "telephone": "+33 7 76 45 80 23",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "DN7",
+          "addressLocality": "Le Muy",
+          "postalCode": "83490",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.4683,
+          "longitude": 6.5617
+        },
+        "areaServed": {
+          "@type": "Place",
+          "geo": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": 43.4683,
+              "longitude": 6.5617
+            },
+            "geoRadius": 40000
+          }
+        },
+        "priceRange": "€€",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "13:00"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body class="home">
+    <!-- INTRO -->
+    <!-- <div
+      class="intro-overlay flex-center bg-dark fixed"
+      aria-label="Animation d’introduction du site Compagnons du Castellas, couvreur à Le Muy et alentours"
+    >
+      <img
+        src="../assets/logo/logo2.png"
+        alt="Logo Compagnons du Castellas - Couvreur à Le Muy (Var 83) et 40 km aux alentours"
+        class="intro-logo"
+      />
+    </div> -->
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="conteneur-entete">
+        <!-- LOGO -->
+        <div class="logo">
+          <a
+            href="./index.html"
+            aria-label="Retour à l'accueil - Compagnons du Castellas, couvreur zingueur à Le Muy (Var 83) et 40 km autour"
+            title="Entreprise de couverture, zinguerie, charpente et étanchéité à Le Muy (Var) et ses alentours"
+          >
+            <img
+              src="./assets/logo/logo2.png"
+              alt="Logo Compagnons du Castellas - Couvreur à Le Muy (83) et environs"
+            />
+          </a>
+        </div>
+
+        <!-- BURGER MENU -->
+        <div
+          class="burger-menu"
+          id="burger-menu"
+          aria-label="Ouvrir le menu mobile"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <nav class="menu-mobile d-none" id="menu-mobile">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li>
+              <a href="./pages/entretien-et-demoussage.html"
+                >Entretien & Démoussage</a
+              >
+            </li>
+            <li><a href="./pages/couverture.html">Couverture</a></li>
+            <li><a href="./pages/charpente.html">Charpente</a></li>
+            <li>
+              <a href="./pages/zinguerie-et-etancheite.html"
+                >Zinguerie & Étanchéité</a
+              >
+            </li>
+            <li>
+              <a href="./pages/fenetre-toit-velux.html"
+                >Fenêtre de toit Velux</a
+              >
+            </li>
+            <li><a href="./pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- INFO CONTACT -->
+        <div class="zone-navigation">
+          <div class="infos-contact">
+            <a href="./pages/contact.html" class="cta-header bloc-devis">
+              <p>Demande de devis</p>
+              <span class="blink span-devis">
+                <i class="arrow">&#8594;</i> Contactez-nous
+              </span>
+            </a>
+
+            <a
+              href="tel:+33776458023"
+              class="cta-header bloc-tel"
+              title="Appeler Compagnons du Castellas, couvreur à Le Muy (Var 83)"
+            >
+              <p class="mb-0">07 76 45 80 23</p>
+              <span class="fw-normal text-grey-light blink brightness-150"
+                >Assistance 24/24 et 7/7</span
+              >
+            </a>
+          </div>
+          <!-- MENU - NAV -->
+          <nav
+            class="menu-principal"
+            role="navigation"
+            aria-label="Menu principal"
+          >
+            <ul>
+              <li>
+                <a
+                  class="accueil-nav"
+                  href="./index.html"
+                  title="Accueil - Couvreur à Le Muy (Var 83)"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/entretien-et-demoussage.html"
+                  title="Entretien et démoussage de toiture à Le Muy et environs"
+                  >Entretien & Démoussage</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/couverture.html"
+                  title="Travaux de couverture à Le Muy et 40km autour"
+                  >Couverture</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/charpente.html"
+                  title="Charpentier à Le Muy (83) - Pose et rénovation"
+                  >Charpente</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/zinguerie-et-etancheite.html"
+                  title="Zinguerie et étanchéité dans le Var (83)"
+                  >Zinguerie & Étanchéité</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/fenetre-toit-velux.html"
+                  title="Installation de fenêtres de toit Velux à Le Muy"
+                  >Fenêtre de toit Velux</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main role="main">
+      <section
+        class="banniere-principale relative flex justify-center m-auto uppercase"
+        aria-label="Photos de couverture, charpente et zinguerie à Le Muy et dans le Var"
+      >
+        <!-- DIAPO -->
+        <div class="diaporama swiper absolute tl-0">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="./assets/img/renovation-chateau-lascours-a-laudun-2009.webp"
+                alt="Zinguerie artisanale - intervention jusqu'à 40 km autour de Le Muy"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="img-toiture"
+                src="./assets/img/creation-toiture-tuile-canaldepays.webp"
+                alt="Création de toiture en tuiles canal à Le Muy et environs"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="d-block h-100 w-100 bg-dark"
+                src="./assets/img/toiture-poutre.jpg"
+                alt="présentation de Compagnons du Castellas à Le Muy (Var 83)"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- SLOGAN DIAPO -->
+        <div
+          class="slogan-diapo max-w-800 w-100 m-auto text-center text-white brightness-150 select-none"
+        >
+          <span
+            >Votre toiture à Le Muy et alentours,
+            <strong>NOTRE EXPERTISE</strong></span
+          >
+        </div>
+      </section>
+
+      <!-- BLOC IMG -->
+      <div
+        class="bloc-images"
+        data-img-gauche="./assets/img/toit-tuile.webp"
+        data-img-droite="./assets/img/pose-bac-acier-toiture-renovation-var-compagnons-du-castellas.jpg"
+      >
+        <div
+          class="image-gauche"
+          role="img"
+          aria-label="Pose de tuiles en terre cuite à Le Muy (Var)"
+        ></div>
+        <div
+          class="image-droite"
+          role="img"
+          aria-label="Charpente en bois réalisée à Le Muy et ses alentours"
+        ></div>
       </div>
 
-      <p id="progress"></p>
+      <!-- SLOGAN2 -->
+      <h1 class="slogan2">
+        Rénovation et isolation de toiture à Le Muy : confiez vos travaux à
+        l'entreprise de couverture Compagnons du Castellas à Le Muy
+      </h1>
 
+      <!-- PARAGRAPHE TOITURE -->
+      <section class="section-texte">
+        <div class="text-center">
+          <div class="titre-texte">Castellas Toiture</div>
+
+          <h2 class="h2-style">
+            Entreprise de couverture à Le Muy et 40 km autour (Var 83) <br />
+            Compagnons du Castellas Couvreur zingueur local
+          </h2>
+
+          <div class="double-colonnes">
+            <div class="texte-gauche">
+              <p>
+                Depuis 1954,
+                <strong>Compagnons du Castellas</strong> met son
+                <strong>savoir-faire artisanal</strong> au service des habitants
+                de <strong>Le Muy</strong> et des communes voisines (
+                <strong
+                  >Fréjus, Draguignan, Roquebrune-sur-Argens, Saint-Raphaël, Le
+                  Luc, Vidauban, Les Arcs</strong
+                >...). Nous intervenons dans un rayon de
+                <strong>40 km autour de Le Muy</strong> pour tous travaux de
+                <strong>couverture, zinguerie, étanchéité et charpente</strong>.
+              </p>
+
+              <p>
+                Nos équipes sont composées d'<strong>ouvriers qualifiés</strong
+                >, de <strong>Compagnons du Devoir</strong> et
+                d'<strong>ingénieurs</strong>. Nous sommes spécialisés dans la
+                <a>rénovation complète de toitures</a> pour maisons
+                individuelles, bâtiments professionnels ou patrimoines anciens.
+              </p>
+
+              <p>
+                Disponibles <strong>7j/7 en cas d'urgence</strong> (fuite,
+                bâchage), nous proposons des <strong>devis gratuits</strong> et
+                des travaux couverts par une
+                <strong>garantie décennale</strong>. Selon les cas, vous
+                bénéficiez d'une <strong>TVA réduite</strong>.
+              </p>
+
+              <h3>
+                Prestations toiture dans le secteur Le Muy - Fréjus - Draguignan
+              </h3>
+
+              <ul>
+                <li>
+                  <a href="./pages/couverture.html"
+                    >Rénovation / réparation de toiture</a
+                  >
+                  (tuile canal, ardoise, zinc)
+                </li>
+                <li>
+                  <a href="./pages/entretien-et-demoussage.html"
+                    >Entretien de toiture</a
+                  >
+                  : nettoyage, démoussage, hydrofuge longue durée
+                </li>
+                <li>
+                  <a href="./pages/couverture.html#bache">Urgence toiture</a>
+                  : fuite, infiltration, pose de bâche provisoire
+                </li>
+                <li>
+                  <a href="./pages/charpente.html">Charpente</a> : traitement,
+                  renforts, remplacement, poutres
+                </li>
+                <li>
+                  Pose de
+                  <a href="./pages/fenetre-toit-velux.html"
+                    >fenêtres de toit Velux</a
+                  >, changement de gouttières, habillage de bandeaux
+                </li>
+              </ul>
+            </div>
+
+            <div class="trait-vertical"></div>
+
+            <div class="texte-droite">
+              <p>
+                Vous habitez <strong>Roquebrune-sur-Argens</strong>,
+                <strong>Le Luc</strong>, <strong>Les Arcs</strong>,
+                <strong>Saint-Raphaël</strong> ou un village autour de
+                <strong>Le Muy</strong> ? Nous intervenons rapidement dans tout
+                le <strong>centre Var</strong> et sur la côte pour des chantiers
+                sérieux, réalisés avec soin et transparence.
+              </p>
+              <div class="h3-bis">
+                <h3>
+                  Traitement hydrofuge et nettoyage de toiture en Provence
+                </h3>
+              </div>
+
+              <p>
+                Mousse, lichen, salissures... Ces agressions extérieures abîment
+                l'apparence et l'<strong>étanchéité</strong> de votre toit. Nous
+                proposons un
+                <strong>traitement antimousse professionnel</strong> et une
+                protection par <strong>hydrofuge incolore ou coloré</strong>,
+                adaptée à chaque type de couverture.
+              </p>
+
+              <p>
+                Nos produits sont appliqués avec soin sur
+                <strong>tuiles, ardoises, zinc</strong> ou bac acier. Objectif :
+                une <strong>toiture propre, durable et saine</strong>, protégée
+                pour plusieurs années.
+              </p>
+
+              <p class="mb-2">
+                Faites confiance aux <strong>Compagnons du Castellas</strong>,
+                votre <strong>entreprise de couverture à Le Muy</strong>, pour
+                tous vos travaux toiture dans un rayon de 40 km. Contactez-nous
+                pour un <strong>diagnostic gratuit</strong>.
+              </p>
+
+              <p>
+                Nous intervenons également à <strong>Puget-sur-Argens</strong>,
+                <strong>Bagnols-en-Forêt</strong> ou
+                <strong>Trans-en-Provence</strong> pour tout projet de
+                couverture, rénovation ou entretien de toiture dans le périmètre
+                des 40 km autour de Le Muy.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-2">
+            <a
+              href="./pages/contact.html"
+              class="btn"
+              aria-label="Demander un devis gratuit pour rénovation de toiture à Le Muy ou ses environs"
+            >
+              Demandez votre devis gratuit
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="bloc-encarts">
+        <!-- MENU AVEC FONDS DYNAMIQUES -->
+        <div class="fond-encarts">
+          <div
+            class="image-fond active"
+            data-slide="1"
+            style="background-image: url('../assets/img/toit-tuile.webp')"
+          ></div>
+          <div
+            class="image-fond"
+            data-slide="2"
+            style="background-image: url('../assets/img/couverture.webp')"
+          ></div>
+          <div
+            class="image-fond"
+            data-slide="3"
+            style="background-image: url('../assets/img/charpente.webp')"
+          ></div>
+          <div
+            class="image-fond"
+            data-slide="4"
+            style="background-image: url('./assets/img/zinguerie.jpg')"
+          ></div>
+          <div
+            class="image-fond"
+            data-slide="5"
+            style="
+              background-image: url('../assets/img/installation-fenetres-toit-velux-renovation-toiture-var.jpg');
+            "
+          ></div>
+          <div class="overlay-global absolute z-2"></div>
+        </div>
+
+        <!-- LIENS -->
+        <div class="liste-encarts">
+          <div class="encart-colonne" data-slide="1">
+            <div class="overlay-colonne"></div>
+            <a href="./pages/entretien-et-demoussage.html" class="lien-encart"
+              >Entretien et démoussage</a
+            >
+          </div>
+          <div class="encart-colonne" data-slide="2">
+            <div class="overlay-colonne"></div>
+            <a href="./pages/couverture.html" class="lien-encart">Couverture</a>
+          </div>
+          <div class="encart-colonne" data-slide="3">
+            <div class="overlay-colonne"></div>
+            <a href="./pages/charpente.html" class="lien-encart">Charpente</a>
+          </div>
+          <div class="encart-colonne" data-slide="4">
+            <div class="overlay-colonne"></div>
+            <a href="./pages/zinguerie-et-etancheite.html" class="lien-encart"
+              >Zinguerie</a
+            >
+          </div>
+          <div class="encart-colonne" data-slide="5">
+            <div class="overlay-colonne"></div>
+            <a href="./pages/fenetre-toit-velux.html" class="lien-encart"
+              >Fenêtre de toit – Velux</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- //== BLOC IMAGES (x2) ==// -->
+      <div
+        class="bloc-images"
+        data-img-gauche="../assets/img/creation-toiture-tuile-canaldepays.webp"
+        data-img-droite="../assets/img/pose-echafaudage-toiture-renovation-maison-ancienne-var.jpg"
+      >
+        <div
+          class="image-gauche"
+          role="img"
+          aria-label="Pose de tuiles en terre cuite à Le Muy (Var)"
+        ></div>
+        <div
+          class="image-droite"
+          role="img"
+          aria-label="Charpente en bois réalisée à Le Muy et ses alentours"
+        ></div>
+      </div>
+      <!-- SLOGAN2 -->
+      <span class="slogan2">
+        Rénovation et isolation de toiture à Le Muy : confiez vos travaux à
+        l'entreprise de couverture Compagnons du Castellas à Le Muy
+      </span>
+
+      <!-- BLOC TEXTE TOITURE -->
+      <section class="section-texte">
+        <div class="text-center">
+          <div class="titre-texte">
+            Rénover sa toiture dans le Var : préserver le cachet, valoriser son
+            patrimoine
+          </div>
+
+          <!-- H2 optimisé SEO local avec mots-clés principaux -->
+          <h2>
+            Entreprise de couverture dans le Sud-Est <br />
+            Compagnons du Castellas – Couvreur zingueur local
+          </h2>
+
+          <div class="double-colonnes">
+            <div class="texte-gauche">
+              <p>
+                Compagnons du Castellas fait partie des artisans couvreurs
+                zingueurs les plus reconnus dans le Var (83), notamment à Le
+                Muy, Fréjus, Draguignan, Saint-Tropez ou encore Sainte-Maxime.
+                Depuis 3 générations, la rénovation et la réparation de toiture
+                sont au cœur de notre savoir-faire familial. Tous nos couvreurs
+                sont formés selon des méthodes artisanales exigeantes, inspirées
+                de l’excellence des Compagnons du Devoir.
+              </p>
+
+              <p>
+                Notre entreprise de couverture intervient pour tous types de
+                travaux de toiture : pose de couverture neuve, rénovation
+                complète, recherche de fuites, remplacement de tuiles canal,
+                démoussage, traitement hydrofuge, nettoyage de toiture, pose de
+                bâche d’urgence, entretien annuel ou ponctuel. Quelle que soit
+                votre problématique, nos couvreurs zingueurs interviennent
+                rapidement et avec une expertise reconnue.
+              </p>
+
+              <p>
+                Basés à Le Muy, nous couvrons tout le département du Var dans un
+                rayon de 50 km : Fréjus, Saint-Raphaël, Puget-sur-Argens,
+                Draguignan, Roquebrune-sur-Argens, Les Arcs, Vidauban, Lorgues,
+                Cogolin, Sainte-Maxime, La Croix-Valmer et bien sûr
+                Saint-Tropez. Nous disposons également d’une équipe mobile dans
+                le Golfe de Saint-Tropez pour les projets de rénovation plus
+                haut de gamme.
+              </p>
+            </div>
+
+            <div class="trait-vertical"></div>
+
+            <div class="texte-droite">
+              <p>
+                Nos artisans interviennent régulièrement sur des chantiers
+                sensibles : toitures complexes, patrimoine ancien, villas
+                classées ou bâtiments protégés par les Architectes des Bâtiments
+                de France. Ce niveau d’exigence confirme notre réputation
+                d’artisans couvreurs sérieux, rigoureux et expérimentés.
+              </p>
+
+              <p>
+                Que vous ayez besoin de refaire entièrement votre toiture, de
+                réparer une infiltration ou de traiter vos tuiles contre
+                l’humidité, nous vous proposons un
+                <strong>devis gratuit</strong> et personnalisé. Tous nos travaux
+                de couverture sont garantis par notre
+                <strong>assurance décennale</strong>, pour une sérénité totale.
+              </p>
+
+              <p>
+                Vous souhaitez connaître le
+                <strong>prix d’une rénovation de toiture</strong> dans le Var ?
+                Les tarifs varient généralement entre
+                <strong>150 € et 250 € du m²</strong> selon la complexité du
+                chantier, les matériaux utilisés (tuile, ardoise, zinc…) et
+                l’état de la toiture. N’hésitez pas à nous contacter pour
+                obtenir un devis gratuit ou consulter notre article dédié au
+                tarif d’une rénovation de toiture.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-2">
+            <a
+              href="./pages/contact.html"
+              class="btn"
+              aria-label="Demander un devis gratuit pour rénovation de toiture à Le Muy ou ses environs"
+            >
+              Demandez votre devis gratuit
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- //== BLOC IMAGES (x2) ==// -->
+      <div
+        class="bloc-images"
+        data-img-gauche="../assets/img/detail-charpente-traditionnelle-bois-var-le-muy.jpg"
+        data-img-droite="../assets/img/toiture-poutre.jpg"
+      >
+        <div
+          class="image-gauche"
+          role="img"
+          aria-label="Pose de tuiles en terre cuite à Le Muy (Var)"
+        ></div>
+        <div
+          class="image-droite"
+          role="img"
+          aria-label="Charpente en bois réalisée à Le Muy et ses alentours"
+        ></div>
+      </div>
+
+      <!-- TEXTE TOITURE -->
+      <section class="section-texte">
+        <div class="text-center">
+          <div class="titre-texte">
+            Charpente traditionnelle : l’ossature bois authentique et durable
+          </div>
+
+          <!-- H2 optimisé SEO local avec mots-clés principaux -->
+          <h2 class="m-auto mt-1">
+            Réparation de charpente sur la Côte varoise : traitement du bois par
+            un charpentier professionnel
+          </h2>
+
+          <div class="double-colonnes">
+            <div class="texte-gauche">
+              <h3>
+                Votre charpentier expert à Le Muy, Fréjus, Draguignan et
+                Saint-Tropez
+              </h3>
+              <p>
+                En tant qu’<strong>entreprise de charpente</strong> installée à
+                <strong>Le Muy</strong>, Compagnons du Castellas intervient dans
+                tout le <strong>Var (83)</strong> : Fréjus, Draguignan,
+                Sainte-Maxime, Saint-Tropez… Vous cherchez un
+                <strong>charpentier expérimenté</strong> pour une rénovation, un
+                traitement ou une intervention d’urgence ? Notre équipe
+                intervient avec savoir-faire et réactivité.
+              </p>
+
+              <p>
+                Formés selon les méthodes des
+                <strong>Compagnons du Devoir</strong>, nos charpentiers
+                réalisent aussi bien la
+                <strong>réparation de charpente</strong> partielle, la
+                <strong>pose neuve</strong>, que la
+                <strong>rénovation complète</strong>. Nous sommes également
+                spécialisés dans le <strong>traitement du bois</strong> contre
+                les insectes et l’humidité.
+              </p>
+
+              <p>
+                Préserver l’ossature bois de votre maison grâce à un traitement
+                efficace La <strong>charpente</strong> est l’élément porteur de
+                votre toiture. Avec le temps, elle peut se fragiliser à cause
+                des <strong>termites</strong>, du
+                <strong>capricorne des maisons</strong> ou simplement de l’usure
+                naturelle. Un
+                <strong>traitement de charpente régulier</strong> permet
+                d’éviter des dégradations lourdes et coûteuses.
+              </p>
+            </div>
+
+            <div class="trait-vertical"></div>
+
+            <div class="texte-droite">
+              <p>
+                Nous réalisons des <strong>traitements curatifs</strong> ou
+                <strong>préventifs</strong> par injection ou pulvérisation selon
+                l’état de la charpente. Le diagnostic est réalisé par nos
+                charpentiers directement sur place.
+              </p>
+
+              <h3>Nos services de charpente bois dans le Var (83)</h3>
+              <p>Notre équipe assure :</p>
+              <ul>
+                <li>
+                  <strong
+                    ><a href="./pages/charpente.html"
+                      >Remplacement de pièces de charpente abîmées</a
+                    ></strong
+                  >
+                </li>
+                <li>
+                  <strong>Pose de charpente traditionnelle</strong> ou
+                  industrielle
+                </li>
+                <li><strong>Étaiement en cas de fragilité</strong></li>
+                <li><strong>Traitement anti-termites et xylophages</strong></li>
+                <li>
+                  <strong
+                    >Travaux sur charpentes anciennes ou bâtiments
+                    classés</strong
+                  >
+                </li>
+              </ul>
+
+              <p>
+                Pour tout
+                <strong
+                  ><a href="./pages/contact.html">devis gratuit</a></strong
+                >
+                d’entretien ou de rénovation de charpente à
+                <strong>Le Muy</strong>, <strong>Fréjus</strong>,
+                <strong>Les Arcs</strong>, <strong>Sainte-Maxime</strong> ou
+                <strong>Saint-Tropez</strong>, contactez Compagnons du
+                Castellas. Nous mettons notre savoir-faire au service de la
+                solidité de votre toiture.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-2">
+            <a
+              href="./pages/contact.html"
+              class="btn"
+              aria-label="Demander un devis gratuit pour rénovation de toiture à Le Muy ou ses environs"
+            >
+              Demandez votre devis gratuit
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- //== BLOC IMAGES (x2) ==// -->
+      <div
+        class="bloc-images"
+        data-img-gauche="../assets/img/soudure-gouttiere-zinc-travaux-zinguerie-le-muy-var.webp"
+        data-img-droite="../assets/img/pose-gouttiere-zinc-toiture-var-compagnons-du-castellas.jpg"
+      >
+        <div
+          class="image-gauche"
+          role="img"
+          aria-label="Pose de tuiles en terre cuite à Le Muy (Var)"
+        ></div>
+        <div
+          class="image-droite"
+          role="img"
+          aria-label="Charpente en bois réalisée à Le Muy et ses alentours"
+        ></div>
+      </div>
+      <!-- SLOGAN2 -->
+      <span class="slogan2">
+        Rénovation et isolation de toiture à Le Muy : confiez vos travaux à
+        l'entreprise de couverture Compagnons du Castellas à Le Muy
+      </span>
+
+      <!-- TOITURE -->
+      <section class="section-texte">
+        <div class="text-center">
+          <div class="titre-texte">
+            Zinguerie de toiture : la protection invisible contre les
+            infiltrations
+          </div>
+          <h2>
+            Couvreur zingueur dans la région : rénovation de zinguerie,
+            gouttières, chéneaux et abergements
+          </h2>
+
+          <div class="double-colonnes">
+            <div class="texte-gauche">
+              <p>
+                Dans la continuité de notre activité de
+                <strong>couvreurs et charpentiers</strong> à
+                <strong>Le Muy</strong> et dans la région PACA, nous réalisons
+                également tous les
+                <strong>travaux de zinguerie</strong> indispensables à la
+                protection et à la finition de votre toiture. Ces prestations
+                sont assurées avec précision par des zingueurs expérimentés,
+                formés à l’art du travail du zinc et des métaux.
+              </p>
+
+              Parmi nos interventions les plus courantes, vous retrouverez :
+              <ul>
+                <li>
+                  <strong>Pose ou remplacement de gouttières</strong> en zinc,
+                  alu ou cuivre
+                </li>
+                <li>
+                  <strong>Rénovation de couverture en zinc</strong> avec soudure
+                  et raccords étanches
+                </li>
+                <li>
+                  <strong>Pose de chéneaux sur mesure</strong> et création de
+                  descentes pluviales
+                </li>
+                <li>
+                  <strong>Travaux de soudure</strong> en cas de fuite ou
+                  d’infiltration
+                </li>
+                <li>
+                  <strong>Réalisation d’abergements de cheminée</strong> pour
+                  une étanchéité parfaite
+                </li>
+              </ul>
+
+              <p>
+                Que ce soit pour une <strong>installation complète</strong> ou
+                une <strong>petite réparation de zinguerie</strong>, notre
+                équipe se déplace dans tout le secteur :
+                <strong>Fréjus</strong>, <strong>Les Arcs</strong>,
+                <strong>La Motte</strong>, <strong>Sainte-Maxime</strong> et
+                jusqu’à <strong>Saint-Tropez</strong>. Faites appel à un
+                <strong>zingueur expérimenté</strong> et réactif pour vos
+                besoins en toiture.
+              </p>
+            </div>
+
+            <div class="trait-vertical"></div>
+
+            <div class="texte-droite">
+              <h3>Habillage des débords de toit : finition et protection</h3>
+              <p>
+                En complément de la zinguerie, Compagnons du Castellas vous
+                propose également la
+                <strong>pose d’habillages de débords de toit</strong> : une
+                finition essentielle pour garantir l’esthétique et l’étanchéité
+                de votre toiture. Ces éléments jouent un rôle de protection
+                contre l’humidité et les projections de pluie sur les façades.
+              </p>
+
+              Les débords de toit englobent plusieurs éléments :
+              <ul>
+                <li><strong>Habillage bandeaux</strong> en aluminium ou PVC</li>
+                <li>
+                  <strong>Rives de toit</strong> et
+                  <strong>planche de rive</strong>
+                </li>
+                <li><strong>Lambris de sous-toiture</strong> (ou frisette)</li>
+                <li>
+                  Intégration esthétique avec les
+                  <strong>gouttières et descentes</strong>
+                </li>
+              </ul>
+
+              <p>
+                Confiez-nous la réalisation ou la rénovation de vos
+                <strong>finissions de toiture</strong> pour une maison protégée,
+                élégante et durable. Nous intervenons sur tout type de bâtis, y
+                compris sur des
+                <strong>toitures de villas ou de maisons secondaires</strong>
+                dans le Golfe de Saint-Tropez.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-2">
+            <a
+              href="./pages/contact.html"
+              class="btn"
+              aria-label="Demander un devis gratuit pour rénovation de toiture à Le Muy ou ses environs"
+            >
+              Demandez votre devis gratuit
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- //== BLOC IMAGES (x2) ==// -->
+      <div
+        class="bloc-images"
+        data-img-gauche="../assets/img/pose-fenetre-toit-velux-toiture-bac-acier-le-muy-var.webp"
+        data-img-droite="../assets/img/installation-fenetres-toit-velux-renovation-toiture-var.jpg"
+      >
+        <div
+          class="image-gauche"
+          role="img"
+          aria-label="Pose de tuiles en terre cuite à Le Muy (Var)"
+        ></div>
+        <div
+          class="image-droite"
+          role="img"
+          aria-label="Charpente en bois réalisée à Le Muy et ses alentours"
+        ></div>
+      </div>
+
+      <!-- TOITURE -->
+      <section class="section-texte">
+        <div class="text-center">
+          <div class="titre-texte">Pose de fenêtres de toit Velux</div>
+
+          <!-- H2 optimisé SEO local avec mots-clés principaux -->
+          <h2 class="m-auto mt-1">
+            Installateur de fenêtres de toit Velux : Le Muy, Fréjus,
+            Saint-Tropez
+          </h2>
+
+          <div class="double-colonnes">
+            <div class="texte-gauche">
+              <p>
+                Compagnons du Castellas, votre
+                <strong>couvreur zingueur à Le Muy</strong>, intervient
+                également pour la
+                <strong
+                  >pose et le remplacement de fenêtres de toit Velux</strong
+                >
+                dans le Var : <strong>Fréjus</strong>,
+                <strong>Draguignan</strong>, <strong>Sainte-Maxime</strong>,
+                <strong>Saint-Tropez</strong>…
+              </p>
+
+              <p>
+                Une <strong>fenêtre de toit Velux</strong> apporte un gain de
+                lumière naturelle considérable dans les combles ou pièces
+                mansardées. Elle transforme des espaces inutilisés en pièces de
+                vie agréables tout en augmentant la valeur de votre habitation.
+              </p>
+
+              <p>
+                La <strong>pose d’une fenêtre Velux</strong> nécessite cependant
+                une parfaite maîtrise de l’étanchéité de toiture et des
+                découpes. C’est pourquoi il est fortement recommandé de faire
+                appel à un <strong>artisan couvreur qualifié</strong> pour ce
+                type d’intervention.
+              </p>
+            </div>
+
+            <div class="trait-vertical"></div>
+
+            <div class="texte-droite">
+              <p>
+                Vous souhaitez <strong>installer un Velux</strong>,
+                <strong>remplacer une ancienne lucarne</strong> ou ajouter une
+                ouverture dans votre toit ? Nos couvreurs interviennent
+                rapidement dans tout le secteur du
+                <strong>Golfe de Saint-Tropez</strong> et de
+                <strong>la Dracénie</strong>.
+              </p>
+
+              <p>
+                Demandez votre
+                <strong
+                  >devis gratuit pour l’installation d’une fenêtre de
+                  toit</strong
+                >
+                avec Compagnons du Castellas. Nous vous conseillons sur les
+                dimensions, les modèles, les options (motorisation, volet
+                intégré, vitrage renforcé), et réalisons une pose soignée avec
+                garantie décennale.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-2">
+            <a
+              href="./pages/contact.html"
+              class="btn"
+              aria-label="Demander un devis gratuit pour rénovation de toiture à Le Muy ou ses environs"
+            >
+              Demandez votre devis gratuit
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="garantie-decennale section-texte">
+      <h2>
+        Garantie décennale sur vos travaux de toiture à Le Muy et dans le Var
+      </h2>
+      <p>
+        L’entreprise <strong>Compagnons du Castellas</strong> est couverte par
+        une <strong>assurance décennale</strong>, conformément à la législation
+        française. Tous nos
+        <strong>travaux de couverture, rénovation et isolation</strong> sont
+        garantis pendant 10 ans à compter de leur réception.
+      </p>
+    </section>
+
+    <footer>
+      <!-- ========================
+            BANDEAU CONTACT
+      ========================  -->
+      <section class="banniere-social">
+        <div class="overlay-black"></div>
+        <img
+          src="../assets/img/nettoyage-facade-avant-apres-renovation-batiment-le-muy-var.jpg"
+          alt=""
+        />
+        <div class="text-and-btn">
+          <p>Contactez-nous pour échanger sur votre projet</p>
+          <div class="btn-contact">
+            <a href="./pages/contact.html">Demande de devis</a>
+            <a href="tel:0776458023">07 76 45 80 23</a>
+          </div>
+        </div>
+      </section>
+      <section class="footer-social">
+        <!-- ========================
+               RESEAUX
+      ========================  -->
+        <div class="reseaux-avis">
+          <div class="reseaux-container">
+            <span>Suivez-nous :</span>
+            <div class="reseaux-img">
+              <a
+                href="https://www.facebook.com/people/Compagnons-du-Castellas/61570417389278/?name=xhp_nt__fb__action__open_user"
+                aria-label="Facebook"
+                class="social-icon"
+              >
+                <i class="fa-brands fa-square-facebook"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lien-avis">
+            <a
+              href="https://www.google.com/search?client=opera-gx&hs=eYL&sca_esv=9866bbb3ab0f580c&sxsrf=AE3TifOMsnP6zdy26uLHWg25Vp9cYKmU9A:1754396761513&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E82nlnbzD0UFivk8zAceRqPOWaC2GyWPW_KfCWnkx5S2LyI7FEGkO45Dgk15kgyVDaWSs9moBKRB44RnPpaBNtunplHbocnX4Mhoxi0UIv_2H4uXFA%3D%3D&q=Compagnons+du+Castellas+Avis&sa=X&ved=2ahUKEwjhoI-e1fOOAxXiWqQEHWV7H7IQ0bkNegQIPBAD&biw=1879&bih=923&dpr=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="google-btn"
+            >
+              <img src="/assets/logo/google_favicon_.png" alt="Google logo" />
+              <span>AVIS CLIENTS</span>
+            </a>
+          </div>
+        </div>
+
+        <hr />
+        <!-- ========================
+            CONTACT ACCES MAP
+      ========================  -->
+        <div class="contact-acces-map">
+          <ul>
+            <li><strong>Compagnons du Castellas</strong></li>
+            <li>DN7, 83490 Le Muy</li>
+            <!-- <li>mail</li> -->
+            <li>07 76 45 80 23</li>
+            <li><a href="./pages/contact.html" class="btn-acces">accès</a></li>
+          </ul>
+        </div>
+        <!-- ========================
+      MENTIONS LEGALES POLITIQUE DE CONF
+        ========================  -->
+        <div class="autres-liens">
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li>
+              <a href="../politique-de-confidentialite.html"
+                >Politique de confidentialité</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+    <div class="footer-mobile">
+      <a href="./pages/contact.html" class="btn-devis">Demande de devis</a>
+      <div class="footer-buttons">
+        <div class="lien-tel-footer-mobile">
+          <a href="tel:+33776458023" class="tel-btn">
+            <i class="fas fa-phone"></i> Assistance 24/24 et 7/7
+          </a>
+        </div>
+        <div class="lien-avis-mobile">
+          <a
+            href="https://www.google.com/search?client=opera-gx&hs=eYL&sca_esv=9866bbb3ab0f580c&sxsrf=AE3TifOMsnP6zdy26uLHWg25Vp9cYKmU9A:1754396761513&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E82nlnbzD0UFivk8zAceRqPOWaC2GyWPW_KfCWnkx5S2LyI7FEGkO45Dgk15kgyVDaWSs9moBKRB44RnPpaBNtunplHbocnX4Mhoxi0UIv_2H4uXFA%3D%3D&q=Compagnons+du+Castellas+Avis&sa=X&ved=2ahUKEwjhoI-e1fOOAxXiWqQEHWV7H7IQ0bkNegQIPBAD&biw=1879&bih=923&dpr=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="google-btn"
+          >
+            <img src="/assets/logo/google_favicon_.png" alt="Google logo" />
+            <span>AVIS CLIENTS</span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script src="./index.js"></script>
-</body>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/accueil.js"></script>
+  </body>
 </html>
