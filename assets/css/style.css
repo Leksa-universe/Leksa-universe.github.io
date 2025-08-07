@@ -380,7 +380,12 @@ body {
 }
 
 .image-droite {
-  background-image: url("../../assets/img/toiture-poutre.jpg");
+  background: url("../../assets/img/toiture-poutre.jpg") center / cover
+    no-repeat;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .slogan2 {
@@ -577,6 +582,7 @@ body {
   background-color: var(--color-black-shadow);
   pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 /* LISTE DES LIENS */
@@ -1345,23 +1351,25 @@ MENTIONS LEGALES POLITIQUE DE CONF
   }
 
   .encart-colonne:nth-child(1) {
-    background-image: url("../img/toit-tuile.webp");
+    background: url("../img/toit-tuile.webp") center / cover no-repeat;
   }
 
   .encart-colonne:nth-child(2) {
-    background-image: url("../img/couverture.webp");
+    background: url("../img/couverture.webp") center / cover no-repeat;
   }
 
   .encart-colonne:nth-child(3) {
-    background-image: url("../img/charpente.webp");
+    background: url("../img/charpente.webp") center / cover no-repeat;
   }
 
   .encart-colonne:nth-child(4) {
-    background-image: url("../img/zinguerie.webp");
+    background: url("../img/pose-gouttiere-zinc-toiture-var-compagnons-du-castellas.jpg")
+      center / cover no-repeat;
   }
 
   .encart-colonne:nth-child(5) {
-    background-image: url("../img/pose-velux.webp");
+    background: url("../img/depose-couverture-nettoyage-pst-remise-vieille-tuiles-de-pays.jpg")
+      center / cover no-repeat;
   }
 
   .liste-encarts {
