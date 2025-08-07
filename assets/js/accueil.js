@@ -1,5 +1,5 @@
 // ==========================================================
-// 🔹 Supprime l'overlay d'intro après un court délai
+//  Supprime l'overlay d'intro après un court délai
 // ==========================================================
 function supprimerOverlayIntro() {
   window.addEventListener("load", () => {
@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
 });
 
 // ==========================================================
-// 🔹 Ajoute une classe .scrolled à la navigation quand on scroll vers le bas
+//  Ajoute une classe .scrolled à la navigation quand on scroll vers le bas
 // ==========================================================
 function gererEffetScrollSurHeader() {
   const header = document.querySelector(".site-header");
@@ -43,7 +43,7 @@ function gererEffetScrollSurHeader() {
 }
 
 // ==========================================================
-// 🔹 Met à jour la visibilité du slogan selon la slide active
+//  Met à jour la visibilité du slogan selon la slide active
 // ==========================================================
 function mettreAJourSlogan(swiper) {
   const slogan = document.querySelector(".slogan-diapo");
@@ -59,7 +59,7 @@ function mettreAJourSlogan(swiper) {
 }
 
 // ==========================================================
-// 🔹 Initialise le carrousel Swiper
+//  Initialise le carrousel Swiper
 // ==========================================================
 function initialiserDiaporama() {
   new Swiper(".diaporama", {
@@ -82,7 +82,7 @@ function initialiserDiaporama() {
 }
 
 // ==========================================================
-// 🔹 Applique dynamiquement les images dans les blocs flex (2 images)
+//  Applique dynamiquement les images dans les blocs flex (2 images)
 // ==========================================================
 function initialiserBlocsImagesFlex() {
   document.querySelectorAll(".bloc-images").forEach((bloc) => {
@@ -99,7 +99,7 @@ function initialiserBlocsImagesFlex() {
 }
 
 // ==========================================================
-// 🔹 Gère l'effet de survol sur les encarts (image fond + overlay sombre)
+//  Gère l'effet de survol sur les encarts (image fond + overlay sombre)
 // ==========================================================
 function initialiserEffetsSurEncarts() {
   // Si on est en mobile : on ne fait rien
@@ -126,7 +126,7 @@ function initialiserEffetsSurEncarts() {
 }
 
 // ==========================================================
-// 🔹 Active l’animation des traits verticaux quand ils entrent dans le viewport
+//  Active l’animation des traits verticaux quand ils entrent dans le viewport
 // ==========================================================
 function activerAnimationTraitsVerticaux() {
   const tousLesTraits = document.querySelectorAll(".trait-vertical");
@@ -156,7 +156,7 @@ function activerAnimationTraitsVerticaux() {
 }
 
 // ==========================================================
-// 🔹 Fonction globale d'initialisation de la page d'accueil
+//  Fonction globale d'initialisation de la page d'accueil
 // ==========================================================
 function initialiserAccueil() {
   // Empêche le scroll vers le haut sur les liens href="#" ou ancrés sans cible
@@ -185,11 +185,37 @@ function initialiserAccueil() {
   initialiserDiaporama();
   initialiserBlocsImagesFlex();
   initialiserEffetsSurEncarts();
-  // ❌ Désactive les effets JS sur encarts si mobile (tactile sans hover)
+  // Désactive les effets JS sur encarts si mobile (tactile sans hover)
   if (!window.matchMedia("(hover: none)").matches) {
     initialiserEffetsSurEncarts();
   }
   activerAnimationTraitsVerticaux();
+  // Gère le formulaire de contact sans rechargement (AJAX)
+  const form = document.getElementById("form-contact");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form); // Récupère les champs
+
+      fetch("form-handler.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          alert(
+            "✅ Votre message a bien été envoyé ! Les Compagnons du Castellas vous remercient."
+          );
+          form.reset(); // Vide les champs après l’envoi
+        })
+        .catch((error) => {
+          alert("❌ Une erreur est survenue. Veuillez réessayer.");
+          console.error("Erreur:", error);
+        });
+    });
+  }
 }
 
 // ==========================================================

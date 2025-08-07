@@ -14,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $nom = htmlspecialchars(trim($_POST["nom"]));
   $prenom = htmlspecialchars(trim($_POST["prenom"]));
   $email = htmlspecialchars(trim($_POST["email"]));
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "L'adresse email entrée est invalide.";
+    exit;
+}
   $telephone = htmlspecialchars(trim($_POST["telephone"]));
   $message = htmlspecialchars(trim($_POST["message"]));
 
@@ -25,19 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $body .= "Message :\n$message";
 
   // Headers
-  $headers = "From: $email\r\n";
+  $headers = "From: Site Compagnons <no-reply@compagnonsducastellas.fr>\r\n";
   $headers .= "Reply-To: $email\r\n";
 
   // Envoi
   if (mail($to, $subject, $body, $headers)) {
-    header("Location: merci.html");
-    exit;
+    echo "OK"; 
   } else {
     echo "Une erreur est survenue. Veuillez réessayer.";
   }
 
 } else {
-  header("Location: index.html");
+  echo "Méthode non autorisée.";
   exit;
 }
 ?>
